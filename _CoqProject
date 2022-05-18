@@ -1,4 +1,43 @@
--Q src sf
+-Q src/lf LF
 -arg -w -arg -notation-overridden
 
-src/lf/basics/day.v
+src/lf/AltAuto.v
+src/lf/AltAutoTest.v
+src/lf/Auto.v
+src/lf/AutoTest.v
+src/lf/Basics.v
+src/lf/BasicsTest.v
+src/lf/Bib.v
+src/lf/BibTest.v
+src/lf/Extraction.v
+src/lf/ExtractionTest.v
+src/lf/Imp.v
+src/lf/ImpCEvalFun.v
+src/lf/ImpCEvalFunTest.v
+src/lf/ImpParser.v
+src/lf/ImpParserTest.v
+src/lf/ImpTest.v
+src/lf/IndPrinciples.v
+src/lf/IndPrinciplesTest.v
+src/lf/IndProp.v
+src/lf/IndPropTest.v
+src/lf/Induction.v
+src/lf/InductionTest.v
+src/lf/Lists.v
+src/lf/ListsTest.v
+src/lf/Logic.v
+src/lf/LogicTest.v
+src/lf/Maps.v
+src/lf/MapsTest.v
+src/lf/Poly.v
+src/lf/PolyTest.v
+src/lf/Postscript.v
+src/lf/PostscriptTest.v
+src/lf/Preface.v
+src/lf/PrefaceTest.v
+src/lf/ProofObjects.v
+src/lf/ProofObjectsTest.v
+src/lf/Rel.v
+src/lf/RelTest.v
+src/lf/Tactics.v
+src/lf/TacticsTest.v
