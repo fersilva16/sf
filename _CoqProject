@@ -68,10 +68,10 @@ src/plf/Postscript.v
 src/plf/PostscriptTest.v
 src/plf/Preface.v
 src/plf/PrefaceTest.v
-src/plf/Records.v
-src/plf/RecordsTest.v
 src/plf/RecordSub.v
 src/plf/RecordSubTest.v
+src/plf/Records.v
+src/plf/RecordsTest.v
 src/plf/References.v
 src/plf/ReferencesTest.v
 src/plf/Smallstep.v
