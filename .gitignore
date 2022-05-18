@@ -33,3 +33,6 @@ nlia.cache
 nra.cache
 
 .direnv
+
+Makefile.coq
+Makefile.coq.conf

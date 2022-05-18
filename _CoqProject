@@ -1,0 +1,4 @@
+-Q src sf
+-arg -w -arg -notation-overridden
+
+src/lf/basics/day.v
