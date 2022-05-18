@@ -20,6 +20,16 @@
             coq
             gnumake
           ];
+
+          shellHook = ''
+            echo "-Q src sf" > _CoqProject
+            echo "-arg -w -arg -notation-overridden" >> _CoqProject
+            echo "" >> _CoqProject
+
+            find src -iname '*.v' >> _CoqProject
+
+            make all
+          '';
         };
       }
     );
