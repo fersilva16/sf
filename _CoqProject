@@ -1,4 +1,5 @@
 -Q src/lf LF
+-Q src/plf PLF
 -arg -w -arg -notation-overridden
 
 src/lf/AltAuto.v
@@ -41,3 +42,51 @@ src/lf/Rel.v
 src/lf/RelTest.v
 src/lf/Tactics.v
 src/lf/TacticsTest.v
+src/plf/Bib.v
+src/plf/BibTest.v
+src/plf/Equiv.v
+src/plf/EquivTest.v
+src/plf/Hoare.v
+src/plf/Hoare2.v
+src/plf/Hoare2Test.v
+src/plf/HoareAsLogic.v
+src/plf/HoareAsLogicTest.v
+src/plf/HoareTest.v
+src/plf/Imp.v
+src/plf/ImpTest.v
+src/plf/LibTactics.v
+src/plf/LibTacticsTest.v
+src/plf/Maps.v
+src/plf/MapsTest.v
+src/plf/MoreStlc.v
+src/plf/MoreStlcTest.v
+src/plf/Norm.v
+src/plf/NormTest.v
+src/plf/PE.v
+src/plf/PETest.v
+src/plf/Postscript.v
+src/plf/PostscriptTest.v
+src/plf/Preface.v
+src/plf/PrefaceTest.v
+src/plf/Records.v
+src/plf/RecordsTest.v
+src/plf/RecordSub.v
+src/plf/RecordSubTest.v
+src/plf/References.v
+src/plf/ReferencesTest.v
+src/plf/Smallstep.v
+src/plf/SmallstepTest.v
+src/plf/Stlc.v
+src/plf/StlcProp.v
+src/plf/StlcPropTest.v
+src/plf/StlcTest.v
+src/plf/Sub.v
+src/plf/SubTest.v
+src/plf/Typechecking.v
+src/plf/TypecheckingTest.v
+src/plf/Types.v
+src/plf/TypesTest.v
+src/plf/UseAuto.v
+src/plf/UseAutoTest.v
+src/plf/UseTactics.v
+src/plf/UseTacticsTest.v
