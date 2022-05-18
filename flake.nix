@@ -18,6 +18,7 @@
         devShell = with pkgs; mkShell {
           buildInputs = [
             coq
+            gnumake
           ];
         };
       }
