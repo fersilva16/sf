@@ -22,7 +22,7 @@
           ];
 
           shellHook = ''
-            echo "-Q src sf" > _CoqProject
+            echo "-Q src/lf LF" > _CoqProject
             echo "-arg -w -arg -notation-overridden" >> _CoqProject
             echo "" >> _CoqProject
 
