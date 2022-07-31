@@ -1,5 +1,4 @@
 -Q src/lf LF
--Q src/plf PLF
 -arg -w -arg -notation-overridden
 
 src/lf/Basics.v
