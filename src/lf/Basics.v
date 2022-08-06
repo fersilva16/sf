@@ -253,10 +253,10 @@ Fixpoint even (n : nat) : bool :=
 Definition odd (n : nat) : bool :=
   negb (even n).
 
-Example test_odd1: odd 1 = true.
+Example test_odd1 : odd 1 = true.
 Proof. simpl. reflexivity. Qed.
 
-Example test_odd2: odd 4 = false.
+Example test_odd2 : odd 4 = false.
 Proof. simpl. reflexivity. Qed.
 
 Module NatPlayground2.
@@ -284,6 +284,92 @@ End NatPlayground2.
 
 Fixpoint exp (b p : nat) : nat :=
   match p with
-  | O => 1
+  | O => S O
   | S p' => mult b (exp b p')
   end.
+
+Fixpoint factorial (n : nat) : nat :=
+  match n with
+  | O => S O
+  | S n' => mult n (factorial n') 
+  end.
+
+Example test_factorial1: (factorial 3) = 6.
+Proof. simpl. reflexivity. Qed.
+
+Example test_factorial2: (factorial 5) = (mult 10 12).
+Proof. simpl. reflexivity. Qed.
+
+Notation "x + y" := (plus x y)
+                    (at level 50, left associativity)
+                    : nat_scope.
+
+Notation "x - y" := (minus x y)
+                    (at level 50, left associativity)
+                    : nat_scope.
+
+Notation "x * y" := (mult x y)
+                    (at level 40, left associativity)
+                    : nat_scope.
+
+Check ((0 + 1) + 1) : nat.
+
+Fixpoint eqb (n m : nat) : bool :=
+  match n, m with
+  | O, O => true
+  | S n', S m' => eqb n' m'
+  | _, _ => false
+  end.
+
+Notation "x =? y" := (eqb x y) (at level 70) : nat_scope.
+
+Example test_eqb1 : eqb 0 0 = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_eqb2 : eqb 1 1 = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_eqb3 : eqb 4 2 = false.
+Proof. simpl. reflexivity. Qed.
+
+Example test_eqb4 : 1 =? 1 = true.
+Proof. simpl. reflexivity. Qed.
+
+Fixpoint leb (n m : nat) : bool :=
+  match n, m with
+  | O, _ => true
+  | S n', S m' => leb n' m'
+  | _, _ => false
+  end.
+
+Notation "x <=? y" := (leb x y) (at level 70) : nat_scope.
+
+Example test_leb1 : leb 0 0 = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_leb2 : leb 1 3 = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_leb3 : leb 5 2 = false.
+Proof. simpl. reflexivity. Qed.
+
+Example test_leb4 : 1 <=? 2 = true.
+Proof. simpl. reflexivity. Qed.
+
+Definition ltb (n m : nat) : bool :=
+  if eqb n m then false
+  else leb n m.
+
+Notation "x <? y" := (ltb x y) (at level 70) : nat_scope.
+
+Example test_ltb1 : ltb 0 1 = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_ltb2 : ltb 0 0 = false.
+Proof. simpl. reflexivity. Qed.
+
+Example test_ltb3 : ltb 5 2 = false.
+Proof. simpl. reflexivity. Qed.
+
+Example test_ltb4 : 1 <? 2 = true.
+Proof. simpl. reflexivity. Qed.
