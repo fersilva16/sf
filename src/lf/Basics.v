@@ -491,3 +491,39 @@ Proof.
       - reflexivity.
       - reflexivity. }
 Qed.
+
+Theorem andb_true_elim2 : forall b c : bool,
+  andb b c = true -> c = true.
+Proof.
+  intros b c. destruct c eqn : Ec.
+  - reflexivity.
+  - intros H. rewrite <- H. destruct b eqn : Eb.
+    + reflexivity.
+    + reflexivity.
+Qed.
+
+Theorem plus_1_neq_0' : forall n : nat,
+  (n + 1) =? 0 = false.
+Proof.
+  intros [|n].
+  - reflexivity.
+  - reflexivity.
+Qed.
+
+Theorem andb_commutative'' : forall b c,
+  andb c b = andb b c.
+Proof.
+  intros [] [].
+  - reflexivity.
+  - reflexivity.
+  - reflexivity.
+  - reflexivity.
+Qed.
+
+Theorem zero_nbeq_plus_1 : forall n : nat,
+  0 =? (n + 1) = false.
+Proof.
+  intros [|n].
+    - reflexivity.
+    - reflexivity.
+Qed.
