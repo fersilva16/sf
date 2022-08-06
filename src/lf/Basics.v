@@ -164,10 +164,8 @@ Proof. simpl. reflexivity. Qed.
 
 Definition isred (c : color) : bool :=
   match c with
-  | black => false
-  | white => false
   | primary red => true
-  | primary _ => false
+  | _ => false
   end.
 
 Compute (isred (primary red)).
@@ -184,3 +182,12 @@ Proof. simpl. reflexivity. Qed.
 
 Example test_isred3 : (isred black) = false.
 Proof. simpl. reflexivity. Qed.
+
+Module Playground.
+  Definition b : rgb := blue.
+End Playground.
+
+Definition b : bool := true.
+
+Check Playground.b : rgb.
+Check b : bool.
