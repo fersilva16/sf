@@ -527,3 +527,9 @@ Proof.
     - reflexivity.
     - reflexivity.
 Qed.
+
+(* Level means precendence level, 1 + 2 * 3 * 4 -> (1 + ((2 * 3) * 4)) *)
+(* Coq tries to understand context with scopes, type_scope *)
+Notation "x + y" := (plus x y) (at level 50, left associativity) : nat_scope.
+
+Notation "x * y" := (mult x y) (at level 40, left associativity) : nat_scope.
