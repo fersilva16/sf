@@ -473,7 +473,7 @@ Proof.
     { reflexivity. } }
 Qed.
 
-Theorem andb3_exchange : forall b c d, andb (and b c) d = andb (andb b d) c.
+Theorem andb3_exchange : forall b c d, andb (andb b c) d = andb (andb b d) c.
 Proof.
   intros b c d. destruct b eqn : Eb.
   - destruct c eqn : Ec.
