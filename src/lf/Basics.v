@@ -373,3 +373,23 @@ Proof. simpl. reflexivity. Qed.
 
 Example test_ltb4 : 1 <? 2 = true.
 Proof. simpl. reflexivity. Qed.
+
+Theorem plus_0_n : forall n : nat, 0 + n = n.
+Proof.
+  intros n. simpl. reflexivity. Qed.
+
+Theorem plus_0_n' : forall n : nat, 0 + n = n.
+Proof.
+  intros n. reflexivity. Qed.
+
+Theorem plus_0_n'' : forall n : nat, 0 + n = n.
+Proof.
+  intros m. reflexivity. Qed.
+
+Theorem plus_1_l : forall n : nat, 1 + n = S n.
+Proof.
+  intros n. reflexivity. Qed.
+
+Theorem mult_0_l : forall n : nat, 0 * n = 0.
+Proof.
+  intros n. reflexivity. Qed.
