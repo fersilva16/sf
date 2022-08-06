@@ -213,3 +213,77 @@ Module TuplePlayground.
 
   Compute (all_zero (bits B0 B0 B0 B0)).
 End TuplePlayground.
+
+Module NatPlayground.
+  Inductive nat : Type :=
+    | O
+    | S (n : nat).
+
+  Inductive nat' : Type :=
+    | stop
+    | tick (foo : nat').
+
+  Definition pred (n : nat) : nat :=
+    match n with  
+    | O => O
+    | S n' => n'
+    end.
+End NatPlayground.
+
+Check (S (S (S (S O)))).
+
+Definition minustwo (n : nat) : nat :=
+  match n with
+  | O => O
+  | S O => O
+  | S (S n') => n'
+  end.
+
+Check S : nat -> nat.
+Check pred : nat -> nat.
+Check minustwo : nat -> nat.
+
+Fixpoint even (n : nat) : bool :=
+  match n with
+  | O => true
+  | S O => false
+  | S (S n') => even n'
+  end.
+
+Definition odd (n : nat) : bool :=
+  negb (even n).
+
+Example test_odd1: odd 1 = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_odd2: odd 4 = false.
+Proof. simpl. reflexivity. Qed.
+
+Module NatPlayground2.
+  Fixpoint plus (n : nat) (m : nat) : nat :=
+    match n with
+    | O => m
+    | S n' => S (plus n' m)
+    end.
+
+  Compute (plus 3 2).
+
+  Fixpoint mult (n m : nat) : nat :=
+    match n with
+    | O => O
+    | S n' => plus m (mult n' m)
+    end.
+
+  Fixpoint minus (n m : nat) : nat :=
+    match n, m with
+    | O, _ => O
+    | _, O => n
+    | S n', S m' => minus n' m'
+    end.
+End NatPlayground2.
+
+Fixpoint exp (b p : nat) : nat :=
+  match p with
+  | O => 1
+  | S p' => mult b (exp b p')
+  end.
