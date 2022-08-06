@@ -533,3 +533,12 @@ Qed.
 Notation "x + y" := (plus x y) (at level 50, left associativity) : nat_scope.
 
 Notation "x * y" := (mult x y) (at level 40, left associativity) : nat_scope.
+
+(* plus' is performing structural recursion on `n` (descreasing)
+  That implies that all calls of plus' will terminate.
+  Coq demands that. *)
+Fixpoint plus' (n m : nat) : nat :=
+  match n with
+  | O => m
+  | S n' => S (plus' n' m)
+  end.
