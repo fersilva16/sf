@@ -120,7 +120,7 @@ Proof. simpl. reflexivity. Qed.
 Definition andb3 (b1: bool) (b2: bool) (b3: bool) : bool :=
   andb b1 (andb b2 b3).
 
-Example test_andb31: (andb3 true true true) = true.
+Example test_monochrome: (andb3 true true true) = true.
 Proof. simpl. reflexivity. Qed.
 
 Example test_andb32: (andb3 false true true) = false.
@@ -136,3 +136,51 @@ Check true.
 Check true : bool.
 Check (negb true) : bool.
 Check negb : bool -> bool.
+
+Inductive rgb : Type :=
+  | red
+  | green
+  | blue.
+
+Inductive color : Type :=
+  | black
+  | white
+  | primary (p : rgb).
+
+Definition monochrome (c : color) : bool :=
+  match c with
+  | primary p => false
+  | _ => true
+  end.
+
+Example test_monochrome1: (monochrome (black)) = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_monochrome2: (monochrome (white)) = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_monochrome3: (monochrome (primary blue)) = false.
+Proof. simpl. reflexivity. Qed.
+
+Definition isred (c : color) : bool :=
+  match c with
+  | black => false
+  | white => false
+  | primary red => true
+  | primary _ => false
+  end.
+
+Compute (isred (primary red)).
+Compute (isred (black)).
+Compute (isred (white)).
+Compute (isred (primary blue)).
+Compute (isred (primary green)).
+
+Example test_isred1: (isred (primary red)) = true.
+Proof. simpl. reflexivity. Qed.
+
+Example test_isred2: (isred (primary blue)) = false.
+Proof. simpl. reflexivity. Qed.
+
+Example test_isred3: (isred black) = false.
+Proof. simpl. reflexivity. Qed.
