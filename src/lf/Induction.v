@@ -61,3 +61,10 @@ Proof.
   - reflexivity.
   - simpl. rewrite -> IHn'. reflexivity.
 Qed.
+
+Theorem even_S : forall n : nat, even (S n) = negb (even n).
+Proof.
+  intros n. induction n as [| n' IHn' ].
+  - reflexivity.
+  - rewrite -> IHn'. rewrite -> negb_involutive. reflexivity.  
+Qed.
