@@ -54,3 +54,10 @@ Proof.
   - reflexivity.
   - simpl. rewrite -> IHn'. rewrite -> plus_n_Sm. reflexivity. 
 Qed.
+
+Theorem eqb_refl : forall n : nat, (n =? n) = true.
+Proof.
+  intros n. induction n as [| n' IHn' ].
+  - reflexivity.
+  - simpl. rewrite -> IHn'. reflexivity.
+Qed.
