@@ -118,3 +118,14 @@ Proof: By induction on n
     (n' =? n') = true
   which immediate from the induction hypothesis. Qed.
 *)
+
+Theorem add_suffle3 : forall n m p : nat, n + (m + p) = m + (n + p).
+Proof.
+  intros n m p.
+  assert (H: n + p = p + n).
+    { rewrite add_comm. reflexivity. }
+  rewrite -> H.
+  rewrite -> add_comm.
+  rewrite -> add_assoc.
+  reflexivity.
+Qed.
