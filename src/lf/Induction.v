@@ -92,3 +92,29 @@ Proof.
     reflexivity.
   - (* n = S n' *)
     simpl. rewrite IHn'. reflexivity. Qed.
+
+(*
+Theorem: Addition is commutative
+Proof: By induction on n
+- First, suppose n = 0, we must show that:
+    0 + m = m + 0
+  This follows directly from the definition of +.
+- Then, suppose n = S n', we must show that:
+    S n' + m = m + S n'
+  By definition of +, this follows from
+    S (n' + m) = S (m + n')
+  which immediate from the induction hypothesis. Qed.
+*)
+
+(*
+Theorem: (n =? n) = true for any n.
+Proof: By induction on n
+- First, suppose n = 0, we must show that:
+    (0 =? 0) = true
+  This follows directly from the definition of =?.
+- Then, suppose n = S n', we must show that:
+    (S n' =? S n') = true
+  By definition of +, this follows from
+    (n' =? n') = true
+  which immediate from the induction hypothesis. Qed.
+*)
