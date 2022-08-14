@@ -68,3 +68,27 @@ Proof.
   - reflexivity.
   - rewrite -> IHn'. rewrite -> negb_involutive. reflexivity.  
 Qed.
+
+Theorem mult_0_plus' : forall n m : nat,
+  (n + 0 + 0) * m = n * m.
+Proof.
+  intros n m.
+  assert (H: n + 0 + 0 = n).
+    { rewrite add_comm. simpl. rewrite add_comm. reflexivity. }
+  rewrite -> H.
+  reflexivity.
+Qed.
+
+Theorem add_assoc' : forall n m p : nat,
+  n + (m + p) = (n + m) + p.
+Proof. intros n m p. induction n as [| n' IHn']. reflexivity.
+  simpl. rewrite IHn'. reflexivity. Qed.
+
+  Theorem add_assoc'' : forall n m p : nat,
+  n + (m + p) = (n + m) + p.
+Proof.
+  intros n m p. induction n as [| n' IHn'].
+  - (* n = 0 *)
+    reflexivity.
+  - (* n = S n' *)
+    simpl. rewrite IHn'. reflexivity. Qed.

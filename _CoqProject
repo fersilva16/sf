@@ -2,4 +2,4 @@
 -arg -w -arg -notation-overridden
 
 src/lf/Basics.v
-src/lf/Peano.v
+src/lf/Induction.v
