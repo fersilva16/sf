@@ -119,7 +119,7 @@ Proof: By induction on n
   which immediate from the induction hypothesis. Qed.
 *)
 
-Theorem add_suffle3 : forall n m p : nat, n + (m + p) = m + (n + p).
+Theorem add_shuffle3 : forall n m p : nat, n + (m + p) = m + (n + p).
 Proof.
   intros n m p.
   assert (H: n + p = p + n).
@@ -136,7 +136,7 @@ Proof.
   assert (H: forall p q : nat, p * S q = p + p * q).
     { intros p q. induction p as [| p' IHp' ].
       - reflexivity.
-      - simpl. rewrite -> IHp'. rewrite -> add_suffle3. reflexivity. }
+      - simpl. rewrite -> IHp'. rewrite -> add_shuffle3. reflexivity. }
 
   induction n as [| n' IHn' ].
   - simpl. rewrite -> mult_0_r. reflexivity.
@@ -217,4 +217,12 @@ Proof.
     rewrite -> IHn'.
     rewrite -> mult_plus_distr_r.
     reflexivity.
+Qed.
+
+Theorem add_shuffle3' : forall n m p : nat, n + (m + p) = m + (n + p).
+Proof.
+  intros n m p.
+  replace (n + p) with (p + n).
+  - rewrite -> add_comm. rewrite -> add_assoc. reflexivity.
+  - rewrite -> add_comm. reflexivity.
 Qed.
