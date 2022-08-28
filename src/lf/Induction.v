@@ -129,3 +129,16 @@ Proof.
   rewrite -> add_assoc.
   reflexivity.
 Qed.
+
+Theorem mul_comm : forall m n : nat, m * n = n * m.
+Proof.
+  intros m n.
+  assert (H: forall p q : nat, p * S q = p + p * q).
+    { intros p q. induction p as [| p' IHp' ].
+      - reflexivity.
+      - simpl. rewrite -> IHp'. rewrite -> add_suffle3. reflexivity. }
+
+  induction n as [| n' IHn' ].
+  - simpl. rewrite -> mult_0_r. reflexivity.
+  - simpl. rewrite -> H. rewrite -> IHn'. reflexivity.
+Qed.
