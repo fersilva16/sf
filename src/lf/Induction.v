@@ -253,3 +253,33 @@ Proof.
   - reflexivity.
   - simpl. rewrite -> bin_to_nat_pres_incr. rewrite -> IHn'. reflexivity. 
 Qed.
+
+Lemma double_incr : forall n : nat, double (S n) = S (S (double n)).
+Proof.
+  intros n. reflexivity. 
+Qed.
+
+Definition double_bin (b : bin) : bin :=
+  match b with
+  | Z => Z
+  | b => B0 b
+  end.
+
+Example double_bin_zero : double_bin Z = Z.
+Proof. simpl. reflexivity. Qed.
+
+Lemma double_incr_bin : forall b,
+  double_bin (incr b) = incr (incr (double_bin b)).
+Proof.
+  intros b. destruct b.
+  - reflexivity.
+  - reflexivity.
+  - reflexivity. 
+Qed.
+
+Theorem bin_nat_bin_fails : ∀ b, nat_to_bin (bin_to_nat b) = b.
+Abort.
+
+(* The bin_nat_bin theorem fails because it also can accept bin
+  with trailing zeros to the left, so no all the cases of
+  bin -> nat -> bin are equal *)
