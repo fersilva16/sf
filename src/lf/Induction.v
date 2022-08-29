@@ -226,3 +226,17 @@ Proof.
   - rewrite -> add_comm. rewrite -> add_assoc. reflexivity.
   - rewrite -> add_comm. reflexivity.
 Qed.
+
+Theorem bin_to_nat_pres_incr : forall b : bin,
+  bin_to_nat (incr b) = 1 + bin_to_nat b.
+Proof.
+  intros b.
+  assert (H: forall p q : nat, S (S (p + q)) = S p + S q).
+    { intros p q. induction p as [| p' IHp' ].
+      - reflexivity.
+      - simpl. rewrite -> IHp'. reflexivity. }
+  induction b as [| c' IHc' | b' IHb' ].
+  - reflexivity.
+  - reflexivity.
+  - simpl. rewrite -> IHb'. rewrite -> H. reflexivity.
+Qed.
